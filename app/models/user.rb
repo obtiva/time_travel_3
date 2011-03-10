@@ -6,4 +6,15 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  def friends
+    friends = []
+    friend_requests.each do |friend|
+      friends << friend.receiver
+    end
+    friend_requests_received.each do |friend|
+      friends << friend.sender
+    end
+    friends
+  end
 end
