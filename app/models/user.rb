@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
     return Trip.all if purchases.empty?
     Trip.where(["id NOT IN (?)", purchases.map(&:trip_id)])
   end
+  
+  def friends_on_trip(trip)
+    trip.purchases.map(&:user) & friends
+  end
 end

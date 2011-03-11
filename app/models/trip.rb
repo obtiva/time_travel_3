@@ -55,7 +55,12 @@ class Trip < ActiveRecord::Base
         trip_points += 5
       end
     end
+    trip_points += friend_preference_points(current_user)
     trip_points
+  end
+  
+  def friend_preference_points(user)
+    user.friends_on_trip(self).size * 10
   end
 
 end
