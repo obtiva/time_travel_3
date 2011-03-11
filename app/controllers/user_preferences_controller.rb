@@ -42,14 +42,20 @@ class UserPreferencesController < ApplicationController
   def create
     User.transaction do
       current_user.user_preferences.clear
-      params[:century].each do |century|
-        current_user.user_preferences.create(:kind => "century", :name => "#{century}s")
+      if params[:century]
+        params[:century].each do |century|
+          current_user.user_preferences.create(:kind => "century", :name => "#{century}s")
+        end
       end
-      params[:area].each do |area|
-        current_user.user_preferences.create(:kind => "area", :name => area)
+      if params[:area]
+        params[:area].each do |area|
+          current_user.user_preferences.create(:kind => "area", :name => area)
+        end
       end
-      params[:activity].each do |activity|
-        current_user.user_preferences.create(:kind => "activity", :name => activity)
+      if params[:activity]
+        params[:activity].each do |activity|
+          current_user.user_preferences.create(:kind => "activity", :name => activity)
+        end
       end
     end
     redirect_to user_path(current_user)

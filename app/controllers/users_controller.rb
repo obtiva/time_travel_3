@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:show, :edit, :update]
   
   def index
     @users = User.all(:order => "last_name ASC")
@@ -20,15 +19,15 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = @current_user
+    @user = current_user
   end
 
   def edit
-    @user = @current_user
+    @user = current_user
   end
   
   def update
-    @user = @current_user # makes our views "cleaner" and more consistent
+    @user = current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
       redirect_to account_url

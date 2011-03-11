@@ -1,4 +1,7 @@
 TimeTravel3::Application.routes.draw do
+  
+  devise_for :users
+  
   resources :friends
 
   resources :trip_features
@@ -11,7 +14,5 @@ TimeTravel3::Application.routes.draw do
 
   resources :users
 
-  devise_for :users
-
-  root :to => "home#index"
+  root :to => "trips#index"
 end

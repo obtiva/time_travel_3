@@ -93,7 +93,7 @@ beatles = Trip.create!(:name => "The Beatles In Concert",
     :image_name => "beatles.jpg",
     :price => 33450)
     
-enigma = Trip.create!(:name => "Crack The Engigma",
+enigma = Trip.create!(:name => "Crack The Ensigma",
     :tag_line => "Use the First Turing Machine",
     :start_date => "September 15, 1939", 
     :end_date => "January 1, 1943", 
@@ -121,7 +121,6 @@ fred = User.create!(
     :password_salt => "salt",
     :password => "password",
     :password_confirmation => "password",
-    :crypted_password => Authlogic::CryptoProviders::Sha512.encrypt("password" + "salt"),
     :email => "fred@test.com")
     
 fred.user_preferences.create(:kind => "century", :name => "1600s")
@@ -134,7 +133,6 @@ wilma = User.create!(
     :password_salt => "salt",
     :password => "password",
     :password_confirmation => "password",
-    :crypted_password => Authlogic::CryptoProviders::Sha512.encrypt("password" + "salt"),
     :email => "wilma@test.com")
     
 barney = User.create!(
@@ -145,7 +143,6 @@ barney = User.create!(
     :password_salt => "salt",
     :password => "password",
     :password_confirmation => "password",
-    :crypted_password => Authlogic::CryptoProviders::Sha512.encrypt("password" + "salt"),
     :email => "barney@test.com")
         
 betty = User.create!(
@@ -156,7 +153,6 @@ betty = User.create!(
     :password_salt => "salt",
     :password => "password",
     :password_confirmation => "password",
-    :crypted_password => Authlogic::CryptoProviders::Sha512.encrypt("password" + "salt"),
     :email => "betty@test.com")
     
 Friend.delete_all    
