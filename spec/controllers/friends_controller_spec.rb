@@ -34,41 +34,41 @@ describe FriendsController do
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested friend as @friend" do
-      Friend.stub(:find).with("37") { mock_friend }
-      get :edit, :id => "37"
-      assigns(:friend).should be(mock_friend)
-    end
-  end
+  # describe "GET edit" do
+  #   it "assigns the requested friend as @friend" do
+  #     Friend.stub(:find).with("37") { mock_friend }
+  #     get :edit, :id => "37"
+  #     assigns(:friend).should be(mock_friend)
+  #   end
+  # end
 
   describe "POST create" do
     describe "with valid params" do
-      it "assigns a newly created friend as @friend" do
-        Friend.stub(:new).with({'these' => 'params'}) { mock_friend(:save => true) }
-        post :create, :friend => {'these' => 'params'}
-        assigns(:friend).should be(mock_friend)
-      end
+    #   it "assigns a newly created friend as @friend" do
+    #     Friend.stub(:new).with({'these' => 'params'}) { mock_friend(:save => true) }
+    #     post :create, :friend => {'these' => 'params'}
+    #     assigns(:friend).should be(mock_friend)
+    #   end
 
-      it "redirects to the created friend" do
-        Friend.stub(:new) { mock_friend(:save => true) }
-        post :create, :friend => {}
-        response.should redirect_to(friend_url(mock_friend))
-      end
-    end
+    #   it "redirects to the created friend" do
+    #     Friend.stub(:new) { mock_friend(:save => true) }
+    #     post :create, :friend => {}
+    #     response.should redirect_to(friend_url(mock_friend))
+    #   end
+    # end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved friend as @friend" do
-        Friend.stub(:new).with({'these' => 'params'}) { mock_friend(:save => false) }
-        post :create, :friend => {'these' => 'params'}
-        assigns(:friend).should be(mock_friend)
-      end
+    # describe "with invalid params" do
+    #   it "assigns a newly created but unsaved friend as @friend" do
+    #     Friend.stub(:new).with({'these' => 'params'}) { mock_friend(:save => false) }
+    #     post :create, :friend => {'these' => 'params'}
+    #     assigns(:friend).should be(mock_friend)
+    #   end
 
-      it "re-renders the 'new' template" do
-        Friend.stub(:new) { mock_friend(:save => false) }
-        post :create, :friend => {}
-        response.should render_template("new")
-      end
+      # it "re-renders the 'new' template" do
+      #   Friend.stub(:new) { mock_friend(:save => false) }
+      #   post :create, :friend => {}
+      #   response.should render_template("new")
+      # end
     end
   end
 
@@ -115,11 +115,11 @@ describe FriendsController do
       delete :destroy, :id => "37"
     end
 
-    it "redirects to the friends list" do
-      Friend.stub(:find) { mock_friend }
-      delete :destroy, :id => "1"
-      response.should redirect_to(friends_url)
-    end
+    # it "redirects to the friends list" do
+    #   Friend.stub(:find) { mock_friend }
+    #   delete :destroy, :id => "1"
+    #   response.should redirect_to(friends_url)
+    # end
   end
 
 end
