@@ -8,4 +8,5 @@ group :development, :test do
   gem 'webrat'
   gem 'cucumber-rails'
   gem 'rspec-rails'
+  gem 'launchy'
 end
