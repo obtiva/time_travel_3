@@ -23,4 +23,9 @@ class User < ActiveRecord::Base
     end
     friends
   end
+  
+  def unpurchased_trips
+    return Trip.all if purchases.empty?
+    Trip.where(["id NOT IN (?)", purchases.map(&:trip_id)])
+  end
 end

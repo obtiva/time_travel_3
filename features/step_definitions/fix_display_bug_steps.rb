@@ -38,7 +38,7 @@ Given /^a logged in user$/ do
 end
 
 When /^the user buys a trip$/ do
-  click_link("Go on Mayflower Luxury Cruise")
+  click_link("Go on Mayflower Luxury Cruise", :method => :post)
 end
 
 When /^goes back to the home page$/ do

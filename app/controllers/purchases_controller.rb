@@ -42,7 +42,6 @@ class PurchasesController < ApplicationController
   def create
     @purchase = Purchase.new(:trip_id => params[:id], :user => current_user,
         :purchase_date => Date.today)
-
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to(@purchase, :notice => 'Purchase was successfully created.') }
